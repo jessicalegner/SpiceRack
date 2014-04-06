@@ -1,0 +1,15 @@
+<ion-view title="SpiceRack">
+  <ion-content class="has-header padding">
+    <a class="button button-block button-balanced" hrole="button" href="#/tab/spice/new">
+      <i class="icon ion-plus-round"></i> New Sipce
+    </a>
+    <ion-list>
+      <ion-item ng-repeat="spice in spices" type="item-text-wrap" href="#/tab/spice/{{spice.id}}">
+        <div class="row">
+        	<div class="col col-75">{{spice.name}}</div>
+        	<div class="col">{{spice.manufacturer}}</div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
