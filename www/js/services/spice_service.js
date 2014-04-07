@@ -17,8 +17,17 @@ app.factory("SpiceService", function($http, $q) {
     return deferred.promise;
   };
 
+  var deleteSpice = function(id) {
+    var deferred = $q.defer();
+    var promise = $http.delete('http://localhost:8000/api/v1/Spices/' + id).success(function (response) {
+      deferred.resolve(response);
+    });
+    return deferred.promise;
+  };
+
   return {
     getSpicesByUser: getSpicesByUser,
-    getSpiceById: getSpiceById
+    getSpiceById: getSpiceById,
+    deleteSpice: deleteSpice
   };
 });

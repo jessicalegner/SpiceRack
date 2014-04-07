@@ -5,17 +5,22 @@ angular.module('starter.controllers', [])
 	SpiceService.getSpicesByUser(10).then(function (data) {
 		$scope.spices = data;
 	});
+})
 
-	$scope.go = function (path) {
-		$location.path(path);
+.controller('SpiceDetailCtrl', function($location, $scope, $stateParams, SpiceService) {
+	SpiceService.getSpiceById($stateParams.spiceId).then(function (data) {
+		$scope.spice = data;
+	});
+
+	$scope.delete = function(id) {
+		SpiceService.deleteSpice(id);
+		$location.path('#/tab/dash');
+		// TODO: need to refresh the dash after delete
 	};
 })
 
-.controller('SpiceDetailCtrl', function($scope, $stateParams, Spices) {
-  $scope.spice = Spices.get($stateParams.spiceId);
-})
-
 .controller('NewSpiceCtrl', function($scope) {
+  
 })
 
 .controller('AccountCtrl', function($scope) {
