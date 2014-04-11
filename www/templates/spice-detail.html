@@ -1,18 +1,32 @@
-<ion-view title="{{spice.data.name}}">
+<ion-view title="{{spice.data.0.name}}">
   <ion-content has-header="true" padding="true">
   	<div class="list">
-	  <label class="item item-input item-stacked-label">
-	    <span class="input-label">Spice</span>
-	    <p>{{ spice.data.name }}</p>
-	  </label>
-	  <label class="item item-input item-stacked-label">
-	    <span class="input-label">Manufacturer</span>
-	    <p>{{ spice.data.manufacturer }}</p>
-	  </label>
-	  <label class="item item-input item-stacked-label">
-	    <span class="input-label">Expiration Date</span>
-	    <p>{{ spice.data.expiration }}</p>
-	  </label>
-	</div>
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Spice</span>
+		    <p>{{ spice.data.0.name }}</p>
+		  </label>
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Manufacturer</span>
+		    <p>{{ spice.data.0.manufacturer }}</p>
+		  </label>
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Expiration Date</span>
+		    <p>{{ spice.data.0.pivot.expiration }}</p>
+		  </label>
+		</div>
+		<!-- <div class="list">
+		  <div class="item range range-positive"> -->
+		    Empty
+		    <input type="range" name="amount" min="0" max="100" ng-model="spiceUpdate.amount" value="99">
+		    Full
+		  <!-- </div>
+		</div> -->
+
+		<button class="button button-block button-positive" ng-click="update(spice.data.id)">
+			<i class="ion-ios7-checkmark"></i> Save Spice
+		</button>
+		<button class="button button-block button-assertive" ng-click="delete(spice.data.id)">
+			<i class="ion-ios7-trash"></i> Delete Spice
+		</button>
   </ion-content>
 </ion-view>

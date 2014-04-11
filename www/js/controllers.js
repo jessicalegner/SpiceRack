@@ -8,7 +8,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SpiceDetailCtrl', function($location, $scope, $stateParams, SpiceService) {
-	SpiceService.getSpiceById($stateParams.spiceId).then(function (data) {
+	$scope.spiceUpdate = {};
+
+	SpiceService.getSpiceById($stateParams.spiceId, 10).then(function (data) {
 		$scope.spice = data;
 	});
 
@@ -16,6 +18,11 @@ angular.module('starter.controllers', [])
 		SpiceService.deleteSpice(id);
 		$location.path('#/tab/dash');
 		// TODO: need to refresh the dash after delete
+	};
+
+	$scope.update = function(id) {
+		SpiceService.updateSpice($scope.spiceUpdate, id);
+		$location.path('#/tab/dash');
 	};
 })
 

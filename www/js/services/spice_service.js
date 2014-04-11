@@ -1,5 +1,12 @@
 'use strict';
-app.factory("SpiceService", function($http, $q) {
+app.factory("SpiceService", function($http, $q, $sanitize) {
+
+  var sanitizeSpice = function(spice, id) {
+    return {
+      amount: $sanitize(spice.amount),
+      id: id
+    };
+  };
 
   var getSpicesByUser = function(userId) {
     var deferred = $q.defer();
@@ -9,9 +16,9 @@ app.factory("SpiceService", function($http, $q) {
     return deferred.promise;
   };
 
-  var getSpiceById = function(id) {
+  var getSpiceById = function(id, userId) {
     var deferred = $q.defer();
-    var promise = $http.get('http://localhost:8000/api/v1/Spices/' + id).success(function (response) {
+    var promise = $http.get('http://localhost:8000/api/v1/Spices/' + id + '/' + userId).success(function (response) {
         deferred.resolve(response);
     });
     return deferred.promise;
@@ -25,9 +32,20 @@ app.factory("SpiceService", function($http, $q) {
     return deferred.promise;
   };
 
+  var updateSpice = function(spice, id) {
+    console.log(sanitizeSpice(spice, id));
+    var spice = $http.put("http://localhost:8000/api/v1/Spices/", sanitizeSpice(spice, id));
+      // spice.success(function(){
+
+      // });
+      return spice;
+  }
+
   return {
     getSpicesByUser: getSpicesByUser,
     getSpiceById: getSpiceById,
-    deleteSpice: deleteSpice
+    deleteSpice: deleteSpice,
+    updateSpice: updateSpice,
+    sanitizeSpice: sanitizeSpice
   };
 });
