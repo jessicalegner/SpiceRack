@@ -1,23 +1,23 @@
-<ion-view title="{{spice.data.0.name}}">
+<ion-view title="{{spice.name}}">
   <ion-content has-header="true" padding="true">
   	<div class="list">
 		  <label class="item item-input item-stacked-label">
 		    <span class="input-label">Spice</span>
-		    <p>{{ spice.data.0.name }}</p>
+		    <p>{{ spice.name }}</p>
 		  </label>
 		  <label class="item item-input item-stacked-label">
 		    <span class="input-label">Manufacturer</span>
-		    <p>{{ spice.data.0.manufacturer }}</p>
+		    <p>{{ spice.manufacturer }}</p>
 		  </label>
 		  <label class="item item-input item-stacked-label">
 		    <span class="input-label">Expiration Date</span>
-		    <p>{{ spice.data.0.pivot.expiration }}</p>
+		    <p>{{ spice.pivot.expiration }}</p>
 		  </label>
 		</div>
 		<!-- <div class="list">
 		  <div class="item range range-positive"> -->
 		    Empty
-		    <input type="range" name="amount" min="0" max="100" ng-model="spiceUpdate.amount" value="99">
+		    <input type="range" name="amount" min="0" max="100" ng-model="spiceUpdate.amount" value="{{ spice.pivot.amount }}">
 		    Full
 		  <!-- </div>
 		</div> -->

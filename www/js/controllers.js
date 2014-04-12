@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
 	$scope.spiceUpdate = {};
 
 	SpiceService.getSpiceById($stateParams.spiceId, 10).then(function (data) {
-		$scope.spice = data;
+		$scope.spice = data[0];
 	});
 
 	$scope.delete = function(id) {
