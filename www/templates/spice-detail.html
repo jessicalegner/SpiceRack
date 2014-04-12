@@ -17,15 +17,15 @@
 		<div class="list">
 		  <div class="range range-positive">
 		    E
-		    <input type="range" name="amount" min="0" max="100" value="{{ spice.pivot.amount }}" ng-model="spiceUpdate.amount">
+		    <input type="range" name="amount" min="0" max="100" ng-model="spiceUpdate.amount">
 		    F
 		  </div>
 		</div>
 
-		<button class="button button-block button-positive" ng-click="update(spice.data.id)">
+		<button class="button button-block button-positive" ng-click="update({{ spice.id }})">
 			<i class="ion-ios7-checkmark"></i> Save Spice
 		</button>
-		<button class="button button-block button-assertive" ng-click="delete(spice.data.id)">
+		<button class="button button-block button-assertive" ng-click="delete({{ spice.id }})">
 			<i class="ion-ios7-trash"></i> Delete Spice
 		</button>
   </ion-content>
