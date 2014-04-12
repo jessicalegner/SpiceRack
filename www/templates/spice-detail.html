@@ -14,13 +14,13 @@
 		    <p>{{ spice.pivot.expiration }}</p>
 		  </label>
 		</div>
-		<!-- <div class="list">
-		  <div class="item range range-positive"> -->
-		    Empty
-		    <input type="range" name="amount" min="0" max="100" ng-model="spiceUpdate.amount" value="{{ spice.pivot.amount }}">
-		    Full
-		  <!-- </div>
-		</div> -->
+		<div class="list">
+		  <div class="range range-positive">
+		    E
+		    <input type="range" name="amount" min="0" max="100" value="{{ spice.pivot.amount }}" ng-model="spiceUpdate.amount">
+		    F
+		  </div>
+		</div>
 
 		<button class="button button-block button-positive" ng-click="update(spice.data.id)">
 			<i class="ion-ios7-checkmark"></i> Save Spice

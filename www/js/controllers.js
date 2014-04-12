@@ -8,11 +8,13 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SpiceDetailCtrl', function($location, $scope, $stateParams, SpiceService) {
-	$scope.spiceUpdate = {};
-
 	SpiceService.getSpiceById($stateParams.spiceId, 10).then(function (data) {
 		$scope.spice = data[0];
+		$scope.spiceUpdate = {amount: $scope.spice.pivot.amount};
 	});
+	
+
+	// $scope.spiceUpdate = {amount: 90};
 
 	$scope.delete = function(id) {
 		SpiceService.deleteSpice(id);
